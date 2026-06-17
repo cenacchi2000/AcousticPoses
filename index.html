@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AcousticPose · Anonymous Landmark Motion Proof</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <a href="#top" class="brand">AcousticPose</a>
+    <div>
+      <a href="#proof">Proofs</a>
+      <a href="#metrics">Metrics</a>
+      <a href="#results">Results</a>
+      <a href="#code-data">Code/Data</a>
+    </div>
+  </nav>
+
+  <header id="top" class="hero video-hero">
+    <video class="hero-video" controls preload="metadata" poster="assets/figures/landmark_proof_case_01_CREMA-D_1031_IWL_ANG_XX.png">
+      <source src="assets/demos/landmark_proof_case_01_CREMA-D_1031_IWL_ANG_XX.mp4" type="video/mp4" />
+    </video>
+    <section>
+      <p class="kicker">Anonymous audio-only landmark reconstruction demo</p>
+      <h1>Speech-driven motion, checked against video landmarks.</h1>
+      <p>The page shows five held-out proof reels using the real continuous duration available in the source corpora. No reel is temporally looped or stretched; the longest high-quality continuous proof here is 7.2s because the public datasets are short-utterance corpora.</p>
+      <div class="legend-row">
+        <span><b class="ref-dot"></b> video reference</span>
+        <span><b class="pred-dot"></b> audio-only reconstruction</span>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="metrics" id="metrics" aria-label="headline landmark evidence">
+      <div><span>Visual proofs</span><strong>5</strong><p>continuous held-out reels, no temporal looping</p></div>
+      <div><span>Landmarks</span><strong>147</strong><p>dense 3D facial points per frame</p></div>
+      <div><span>Mouth PCK</span><strong>0.96</strong><p>mean over the displayed proof reels</p></div>
+      <div><span>Lower-face PCK</span><strong>0.94</strong><p>jaw, mouth, cheeks, and chin region</p></div>
+      <div><span>Brow/Eye PCK</span><strong>1.00</strong><p>upper-face motion agreement</p></div>
+      <div><span>Event timing</span><strong>0.71</strong><p>motion-event alignment from audio</p></div>
+    </section>
+
+    <section id="proof" class="section">
+      <div class="section-head">
+        <p class="index">/ 01 — synchronized visual reconstruction proof</p>
+        <h2>Five real clips, continuous aligned proof reels</h2>
+        <p>The original video panel carries both the video-reference landmarks and the audio-only prediction. The two 3D panels repeat the same comparison on a privacy-preserving white landmark scaffold. The metric panel reports what each score means, not a decorative animation.</p>
+      </div>
+      <div class="case-grid proof-grid">
+        
+        <article class="case-card">
+          <video class="demo-video" controls preload="metadata" poster="assets/figures/landmark_proof_case_02_RAVDESS_01-01-06-02-02-02-14.png">
+            <source src="assets/demos/landmark_proof_case_02_RAVDESS_01-01-06-02-02-02-14.mp4" type="video/mp4" />
+          </video>
+          <div>
+            <p class="eyebrow">Held-out RAVDESS proof</p>
+            <h3>Case 2: synchronized 3D landmark recovery</h3>
+            <p>Green is the video-derived reference. Orange is reconstructed from the audio track only. These are continuous source utterances; no temporal loop is used to inflate duration.</p>
+            <dl>
+              <div><dt>Mouth PCK</dt><dd>0.94<small>frames within 10% landmark error</small></dd></div>
+              <div><dt>Lower PCK</dt><dd>0.91<small>jaw/lip/cheek/chin region</small></dd></div>
+              <div><dt>Event F1</dt><dd>0.75<small>motion-peak timing agreement</small></dd></div>
+            </dl>
+            <p class="baseline-note">Same-target baseline: static-neutral mouth NME 0.065 vs audio NME 0.062. External avatar SOTA predictions are not available in this landmark target space, so they are not fabricated per clip.</p>
+          </div>
+        </article>
+        
+
+        <article class="case-card">
+          <video class="demo-video" controls preload="metadata" poster="assets/figures/landmark_proof_case_03_MELD_dia450_utt11.png">
+            <source src="assets/demos/landmark_proof_case_03_MELD_dia450_utt11.mp4" type="video/mp4" />
+          </video>
+          <div>
+            <p class="eyebrow">Held-out MELD proof</p>
+            <h3>Case 3: synchronized 3D landmark recovery</h3>
+            <p>Green is the video-derived reference. Orange is reconstructed from the audio track only. These are continuous source utterances; no temporal loop is used to inflate duration.</p>
+            <dl>
+              <div><dt>Mouth PCK</dt><dd>0.88<small>frames within 10% landmark error</small></dd></div>
+              <div><dt>Lower PCK</dt><dd>0.77<small>jaw/lip/cheek/chin region</small></dd></div>
+              <div><dt>Event F1</dt><dd>0.81<small>motion-peak timing agreement</small></dd></div>
+            </dl>
+            <p class="baseline-note">Same-target baseline: static-neutral mouth NME 0.062 vs audio NME 0.066. External avatar SOTA predictions are not available in this landmark target space, so they are not fabricated per clip.</p>
+          </div>
+        </article>
+        
+
+        <article class="case-card">
+          <video class="demo-video" controls preload="metadata" poster="assets/figures/landmark_proof_case_04_CREMA-D_1040_WSI_DIS_XX.png">
+            <source src="assets/demos/landmark_proof_case_04_CREMA-D_1040_WSI_DIS_XX.mp4" type="video/mp4" />
+          </video>
+          <div>
+            <p class="eyebrow">Held-out CREMA-D proof</p>
+            <h3>Case 4: synchronized 3D landmark recovery</h3>
+            <p>Green is the video-derived reference. Orange is reconstructed from the audio track only. These are continuous source utterances; no temporal loop is used to inflate duration.</p>
+            <dl>
+              <div><dt>Mouth PCK</dt><dd>1.00<small>frames within 10% landmark error</small></dd></div>
+              <div><dt>Lower PCK</dt><dd>1.00<small>jaw/lip/cheek/chin region</small></dd></div>
+              <div><dt>Event F1</dt><dd>0.61<small>motion-peak timing agreement</small></dd></div>
+            </dl>
+            <p class="baseline-note">Same-target baseline: static-neutral mouth NME 0.039 vs audio NME 0.036. External avatar SOTA predictions are not available in this landmark target space, so they are not fabricated per clip.</p>
+          </div>
+        </article>
+        
+
+        <article class="case-card">
+          <video class="demo-video" controls preload="metadata" poster="assets/figures/landmark_proof_case_05_CREMA-D_1031_TIE_FEA_XX.png">
+            <source src="assets/demos/landmark_proof_case_05_CREMA-D_1031_TIE_FEA_XX.mp4" type="video/mp4" />
+          </video>
+          <div>
+            <p class="eyebrow">Held-out CREMA-D proof</p>
+            <h3>Case 5: synchronized 3D landmark recovery</h3>
+            <p>Green is the video-derived reference. Orange is reconstructed from the audio track only. These are continuous source utterances; no temporal loop is used to inflate duration.</p>
+            <dl>
+              <div><dt>Mouth PCK</dt><dd>1.00<small>frames within 10% landmark error</small></dd></div>
+              <div><dt>Lower PCK</dt><dd>1.00<small>jaw/lip/cheek/chin region</small></dd></div>
+              <div><dt>Event F1</dt><dd>0.67<small>motion-peak timing agreement</small></dd></div>
+            </dl>
+            <p class="baseline-note">Same-target baseline: static-neutral mouth NME 0.029 vs audio NME 0.022. External avatar SOTA predictions are not available in this landmark target space, so they are not fabricated per clip.</p>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+
+    <section id="results" class="section">
+      <div class="section-head">
+        <p class="index">/ 02 — proof-reel results</p>
+        <h2>Paper results and supporting evidence</h2>
+        <p>PCK is the fraction of frames whose normalized landmark error is below 10%. Event F1 measures whether recovered motion peaks occur at the same moments as the video-reference landmarks.</p>
+      </div>
+      <div class="paper-figures">
+        <figure><img src="assets/figures/recoverability_frontier_evidence_board.png" alt="Recoverability frontier evidence board" /><figcaption>Main evidence board: recoverable channels, static-prior failure, wrong-audio control, proxy validation.</figcaption></figure>
+        <figure><img src="assets/figures/results_static_prior_trap.png" alt="Static prior trap" /><figcaption>Static priors can look strong under MAE but collapse on event timing.</figcaption></figure>
+        <figure><img src="assets/figures/recoverability_frontier_channels.png" alt="Recoverability frontier channels" /><figcaption>Motion energy is acoustically recoverable; fine orientation is a boundary channel.</figcaption></figure>
+        <figure><img src="assets/figures/mechanism_negative_controls.png" alt="Mechanism negative controls" /><figcaption>Wrong-audio and reduced-cue controls test whether the result is just loudness or prior motion.</figcaption></figure>
+        <figure><img src="assets/figures/proxy_confidence_performance.png" alt="Proxy confidence performance" /><figcaption>Independent video-proxy confidence explains where the benchmark is reliable.</figcaption></figure>
+        <figure><img src="assets/figures/raw_audio_robustness_subset.png" alt="Raw audio robustness" /><figcaption>Robustness subset under noise, telephone bandwidth, reverberation, packet loss, and gain changes.</figcaption></figure>
+      </div>
+      <p class="note">Full benchmark metrics are computed over 78 landmark proof clips and the main paper’s 4,639 held-out motion-proxy test clips. Same-clip external avatar-SOTA overlays are not shown because those methods have not been exported into this landmark target space.</p>
+    </section>
+
+    <section id="code-data" class="section">
+      <div class="section-head">
+        <p class="index">/ 03 — reproducibility assets</p>
+        <h2>Code and datasets used</h2>
+        <p>This anonymous page includes the main local scripts used to build the benchmark, run the landmark proof, validate MediaPipe proxies, and generate the manuscript-facing figures. Dataset downloads remain with the original public dataset providers.</p>
+      </div>
+      <div class="resource-grid">
+        <article>
+          <span>Code package</span>
+          <h3>AcousticPose scripts</h3>
+          <p>Python scripts for local feature extraction, landmark-proof rendering, recoverability figures, MediaPipe proxy validation, qualitative evidence, and reviewer-addition experiments.</p>
+          <a class="download-link" href="assets/code/acousticpose_code_scripts.zip" download>Download code scripts</a>
+        </article>
+        <article>
+          <span>Benchmark data</span>
+          <h3>MELD + CREMA-D + RAVDESS</h3>
+          <p>Experiments use 21,454 public real audio-video clips: 11,132 MELD, 7,442 CREMA-D, and 2,880 RAVDESS clips.</p>
+          <p>Speaker-disjoint split: 13,657 train, 3,158 validation, and 4,639 test clips.</p>
+        </article>
+        <article>
+          <span>Visual proof data</span>
+          <h3>Held-out landmark subset</h3>
+          <p>The visual proof videos use held-out clips from the same public datasets. MediaPipe video-reference landmarks provide the evaluation target; the orange reconstruction is generated from audio-derived features only.</p>
+          <p>The checked landmark proof set contains 78 held-out clips with 147 dense 3D facial landmarks per frame.</p>
+        </article>
+        <article>
+          <span>Dataset access</span>
+          <h3>Original providers</h3>
+          <ul>
+            <li>MELD: multimodal emotion lines from TV dialogue.</li>
+            <li>CREMA-D: acted emotional speech audio-video clips.</li>
+            <li>RAVDESS: acted speech and song audio-video clips.</li>
+          </ul>
+          <p>Raw videos are not redistributed here; scripts expect locally downloaded dataset folders.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>AcousticPose</strong>
+    <span>Anonymous demo page. Only landmark motion is visualized; the identity texture is intentionally not reconstructed.</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
