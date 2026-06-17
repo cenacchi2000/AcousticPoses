@@ -74,10 +74,6 @@ The page includes:
 - downloadable code script archive
 - public-dataset provenance for MELD, CREMA-D, and RAVDESS
 
-Download the local scripts package:
-
-[assets/code/acousticpose_code_scripts.zip](assets/code/acousticpose_code_scripts.zip)
-
 Datasets used:
 
 - MELD
