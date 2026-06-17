@@ -1,1 +1,0 @@
-/* Static manuscript demo page. */
